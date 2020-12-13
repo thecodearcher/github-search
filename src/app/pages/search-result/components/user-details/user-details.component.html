@@ -1,0 +1,99 @@
+<div class="card" *ngIf="user; else elseTemplate">
+  <div class="card-header flex-wrap d-flex justify-content-between align-items-center">
+    <div class="details d-flex align-items-center">
+      <div class="avater mr-4">
+        <img [src]="user?.avatar_url" alt="">
+      </div>
+      <div>
+        <h5 class="m-0">{{user?.login}}</h5>
+      </div>
+
+    </div>
+    <div class="actions mt-3 mt-md-0">
+      <a class="btn btn-primary" [href]="user?.html_url" target="_blank">View On Github</a>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      <h6 class="mb-0 font-weight-bold">Name</h6>
+      <p>{{user.name}}</p>
+    </div>
+
+    <div class="mb-3">
+      <h6 class="mb-0 font-weight-bold">Bio</h6>
+      <p>{{user.bio}}</p>
+    </div>
+
+    <div class="mb-3">
+      <h6 class="mb-0 font-weight-bold">Followers</h6>
+      <p>{{user.followers}}</p>
+    </div>
+
+    <div class="mb-3">
+      <h6 class="mb-0 font-weight-bold">Following</h6>
+      <p>{{user.following}}</p>
+    </div>
+
+    <div class="mb-3">
+      <h6 class="mb-0 font-weight-bold">Public Repositories</h6>
+      <p>{{user.public_repos}}</p>
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-secondary float-right" (click)="dismiss()">Close</button>
+  </div>
+</div>
+
+<ng-template #elseTemplate>
+  <div class="loading card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div class="details d-flex align-items-center">
+        <div class="avater mr-4">
+          <ngx-skeleton-loader [theme]="{'background-color':'#b1b1b1'}" appearance="circle"></ngx-skeleton-loader>
+        </div>
+        <div>
+          <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1',width:'200px', height: '10px'}">
+          </ngx-skeleton-loader>
+          <ngx-skeleton-loader class="d-block" [theme]="{'background-color':'#b1b1b1', width:'100px', height: '10px'}">
+          </ngx-skeleton-loader>
+        </div>
+
+      </div>
+      <div class="actions">
+        <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1', width:'100px', height: '30px'}">
+        </ngx-skeleton-loader>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1',width:'100px', height: '10px'}">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader class="d-block" [theme]="{'background-color':'#b1b1b1', width:'200px', height: '10px'}">
+        </ngx-skeleton-loader>
+      </div>
+
+      <div class="mb-3">
+        <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1',width:'100px', height: '10px'}">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader class="d-block" [theme]="{'background-color':'#b1b1b1', width:'200px', height: '10px'}">
+        </ngx-skeleton-loader>
+      </div>
+
+      <div class="mb-3">
+        <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1',width:'100px', height: '10px'}">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader class="d-block" [theme]="{'background-color':'#b1b1b1', width:'200px', height: '10px'}">
+        </ngx-skeleton-loader>
+      </div>
+
+      <div class="mb-3">
+        <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1',width:'100px', height: '10px'}">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader class="d-block" [theme]="{'background-color':'#b1b1b1', width:'200px', height: '10px'}">
+        </ngx-skeleton-loader>
+      </div>
+
+    </div>
+  </div>
+</ng-template>

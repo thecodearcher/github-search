@@ -1,0 +1,71 @@
+<main class="container">
+  <ng-container *ngIf="result; else elseTemplate">
+
+    <h4 class="mb-4" [ngPlural]="result.total_count">
+
+      <ng-template ngPluralCase="=0">☹️ No user found for '{{query}}'</ng-template>
+      <ng-template ngPluralCase="=1">Found {{result?.total_count}} user for '{{query}}'</ng-template>
+      <ng-template ngPluralCase="other">Found {{result?.total_count}} users for '{{query}}'</ng-template>
+
+    </h4>
+    <div class="card mb-4" *ngFor="let item of result?.items">
+      <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
+        <div class="details d-flex align-items-center">
+          <div class="avater mr-4">
+            <img [src]="item.avatar_url" alt="">
+          </div>
+          <div>
+            <h5 class="m-0">{{item.login}}</h5>
+            <button (click)="openUserDetailsModal(item.login)"
+              class="m-0 btn btn-info px-1 py-0 font-12 view-detail-btn">View Details</button>
+          </div>
+
+        </div>
+        <div class="actions mt-3 mt-md-0">
+          <a class="btn btn-secondary mr-4 mb-3 mb-md-0" [href]="item.url" target="_blank">View Api Data</a>
+          <a class="btn btn-primary" [href]="item.html_url" target="_blank">View On Github</a>
+        </div>
+      </div>
+    </div>
+
+
+    <nav *ngIf="result.total_count > 10" class="mt-4 d-flex justify-content-center">
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="page < 2">
+          <button class="page-link" (click)="loadPrevious()" tabindex="-1">Previous</button>
+        </li>
+        <li class="page-item">
+          <button class="page-link" (click)="loadMore()">Next</button>
+        </li>
+      </ul>
+    </nav>
+
+  </ng-container>
+
+
+  <ng-template #elseTemplate>
+    <div class="loading card mb-4" *ngFor="let i of [1,2,3,4,5]">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="details d-flex align-items-center">
+          <div class="avater mr-4">
+            <ngx-skeleton-loader [theme]="{'background-color':'#b1b1b1'}" appearance="circle"></ngx-skeleton-loader>
+          </div>
+          <div>
+            <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1',width:'200px', height: '10px'}">
+            </ngx-skeleton-loader>
+            <ngx-skeleton-loader class="d-block"
+              [theme]="{'background-color':'#b1b1b1', width:'100px', height: '10px'}"> </ngx-skeleton-loader>
+          </div>
+
+        </div>
+        <div class="actions d-none d-md-block">
+          <ngx-skeleton-loader class="mr-4" [theme]="{'background-color':'#b1b1b1', width:'100px', height: '30px'}">
+          </ngx-skeleton-loader>
+          <ngx-skeleton-loader [theme]="{ 'background-color':'#b1b1b1', width:'100px', height: '30px'}">
+          </ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</main>

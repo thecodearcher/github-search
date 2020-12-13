@@ -1,0 +1,7 @@
+<ngb-toast class="bg-danger text-light" *ngFor="let toast of toasts" [autohide]="false" (hide)="close(toast.body)">
+  <div class="d-flex justify-content-between align-items-center">
+    <h6 class="m-0">Oops!</h6>
+    <button (click)="close(toast.body)" class="btn btn-outline font-12 bg-danger text-light">X</button>
+  </div>
+  {{toast.body}}
+</ngb-toast>

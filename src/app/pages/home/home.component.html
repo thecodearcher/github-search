@@ -1,0 +1,18 @@
+<main>
+  <div class="container">
+    <div class="label d-flex align-items-center mb-3">
+      <img src="assets/svgs/search.svg" alt="" class="mr-3">
+      <h4 class="mb-0">Search more than <strong>63M</strong> users</h4>
+    </div>
+    <form [formGroup]="searchForm" (ngSubmit)="goToSearchPage()">
+      <div class="row">
+        <div class="col-12 col-md-10 mb-2">
+          <input formControlName="query" placeholder="Search Github" class="form-control" type="search">
+        </div>
+        <div class="col-12 col-md-2 pl-md-0">
+          <button type="submit" class="btn btn-primary w-100">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

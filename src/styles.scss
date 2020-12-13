@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "converter";
+@import "variables";
+
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  font-family: Roboto, sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+.font-12 {
+  font-size: to-rem(12px);
+}
