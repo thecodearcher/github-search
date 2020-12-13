@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'dotslab'`, () => {
+  it(`should have as title 'githubsearch'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dotslab');
+    expect(app.title).toEqual('githubsearch');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('dotslab app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('githubsearch app is running!');
   });
 });
