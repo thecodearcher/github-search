@@ -18,11 +18,13 @@ export class HomeComponent implements OnInit {
   }
 
   goToSearchPage(): void {
-    this.searchForm.markAllAsTouched();
+    this.searchForm.markAsDirty();
 
-    const { query } = this.searchForm.value;
+    if (this.searchForm.valid) {
+      const { query } = this.searchForm.value;
 
-    this.router.navigate(['./search-result'], { queryParams: { query } });
+      this.router.navigate(['./search-result'], { queryParams: { query } });
+    }
 
   }
 
