@@ -28,6 +28,11 @@ export class SearchResultComponent implements OnInit {
     this.query = this.route.snapshot.queryParams?.query;
     this.page = this.route.snapshot.queryParams?.page ?? 1;
 
+    if (!this.query) {
+      this.router.navigate(['./home']);
+      return;
+    }
+
     this.githubService.searchUsers(this.query, this.page, this.limit)
       .subscribe(result => {
         this.result = result;
